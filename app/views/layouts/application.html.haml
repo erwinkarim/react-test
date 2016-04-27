@@ -1,0 +1,30 @@
+!!!!
+%html
+	%head
+		%title ReactTest #{ yield :head}
+		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+		= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
+		= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css", :integrity => "sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd", :crossorigin => "anonymous"
+		%meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1' }
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= javascript_include_tag "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js", :integrity => "sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7", :crossorigin => "anonymous"
+
+		= yield :other_js
+	%body{:style => 'padding-top:60px;'}
+		.navbar.navbar-default.navbar-fixed-top
+			.container-fluid
+				.navbar-header
+					%button.navbar-toggle.collapsed{ :type => 'button', :data => { :toggle => 'collapse', :target => '#root' } }
+						%span.sr-only Toggle Navigation
+						%span.icon-bar
+						%span.icon-bar
+						%span.icon-bar
+					%a.navbar-brand{ :href => root_path } ReactTest
+				.collapse.navbar-collapse#root
+		= yield
+		.container
+			.row-xs-12
+				%footer
+					%p
+						&copy; 2016 ; Problems or Suggestion, mail
+						%a{ :href => "mailto:malekerwin.karim@petronas.com.my?subject=Regarding ReactTest" }  Malek Erwin Karim
